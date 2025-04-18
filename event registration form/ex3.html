@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="ex3.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Event Registration Form</h2>
+        <form id="registrationForm">
+            <div id="attendees">
+                <div class="attendee">
+                    <h3>Attendee 1</h3>
+                    <label>Name: <input type="text" name="name" required></label>
+                    <label>Email: <input type="email" name="email" required onblur="validateEmail(this)"></label>
+                    <label>Age: <input type="number" name="age" required onblur="validateAge(this)"></label>
+
+                    <label>Session Selection:</label>
+<div class="sessions">
+    <label><input type="checkbox" name="session" value="session1" data-time="10:00-12.00pm" data-cost="50" onchange="checkConflicts(this)"> Session 1 -AI 10:00-12.00pm ($50)</label>
+    <label><input type="checkbox" name="session" value="session2" data-time="10:00-12.00pm" data-cost="40" onchange="checkConflicts(this)"> Session 2 - Web Dev 10:00-12.00pm($40)</label>
+    <label><input type="checkbox" name="session" value="session3" data-time="12.00-1.00pm" data-cost="60" data-min-age="18" onchange="checkConflicts(this)"> Session 3 (18+ Only) -Java 12.00-1.00pm ($60)</label>
+</div>
+
+
+                    <label>Special Requirements:
+                        <textarea name="specialReq"></textarea>
+                    </label>
+                    <label>Registration Cost: <span class="cost">$0</span></label>
+                </div>
+            </div>
+            
+            <button type="button" onclick="addAttendee()">Add Another Attendee</button>
+            <button type="button" onclick="submitForm()">Submit Registration</button>
+        </form>
+    </div>
+
+    <script src="ex3.js"></script>
+</body>
+</html>
